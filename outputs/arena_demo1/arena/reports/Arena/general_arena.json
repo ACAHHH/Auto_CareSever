@@ -1,0 +1,80 @@
+{
+    "name": "Arena@general_arena",
+    "dataset_name": "general_arena",
+    "dataset_pretty_name": "GeneralArena",
+    "dataset_description": "\n## Overview\n\nGeneralArena is a custom benchmark designed to evaluate the performance of large language models in a competitive setting, where models are pitted against each other in custom tasks to determine their relative strengths and weaknesses.\n\n## Task Description\n\n- **Task Type**: Model vs Model Arena Evaluation\n- **Input**: User prompts with responses from multiple models\n- **Output**: Pairwise comparison judgments and ELO ratings\n- **Focus**: Comparative model evaluation\n\n## Key Features\n\n- LLM-as-judge for pairwise comparisons\n- ELO rating calculation for model ranking\n- Supports custom model pairs for comparison\n- Winrate and ranking metrics\n- Configurable baseline model\n\n## Evaluation Notes\n\n- Default configuration uses **0-shot** evaluation\n- Requires model outputs from previous evaluations\n- Uses LLM-as-judge for quality assessment\n- Aggregation: ELO rating calculation\n- See [Arena User Guide](https://evalscope.readthedocs.io/en/latest/user_guides/arena.html) for details\n",
+    "model_name": "Arena",
+    "score": 0.4882,
+    "metrics": [
+        {
+            "name": "winrate",
+            "num": 304,
+            "score": 0.4882,
+            "macro_score": 0.4882,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 304,
+                    "score": 0.4882,
+                    "macro_score": 0.4882,
+                    "subsets": [
+                        {
+                            "name": "general_qa&ultrafeedback@dpo_demo&sft_demo",
+                            "score": 0.4882,
+                            "num": 304
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "winrate_lower",
+            "num": 304,
+            "score": 0.4697,
+            "macro_score": 0.4697,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 304,
+                    "score": 0.4697,
+                    "macro_score": 0.4697,
+                    "subsets": [
+                        {
+                            "name": "general_qa&ultrafeedback@dpo_demo&sft_demo",
+                            "score": 0.4697,
+                            "num": 304
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "winrate_upper",
+            "num": 304,
+            "score": 0.5028,
+            "macro_score": 0.5028,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 304,
+                    "score": 0.5028,
+                    "macro_score": 0.5028,
+                    "subsets": [
+                        {
+                            "name": "general_qa&ultrafeedback@dpo_demo&sft_demo",
+                            "score": 0.5028,
+                            "num": 304
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "analysis": "N/A"
+}

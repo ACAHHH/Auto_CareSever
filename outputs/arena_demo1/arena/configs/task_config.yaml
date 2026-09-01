@@ -1,0 +1,146 @@
+analysis_report: false
+api_url: null
+chat_template: null
+dataset_args:
+  general_arena:
+    aggregation: elo
+    data_statistics: null
+    dataset_id: general_arena
+    default_subset: default
+    description: '
+
+      ## Overview
+
+
+      GeneralArena is a custom benchmark designed to evaluate the performance of large
+      language models in a competitive setting, where models are pitted against each
+      other in custom tasks to determine their relative strengths and weaknesses.
+
+
+      ## Task Description
+
+
+      - **Task Type**: Model vs Model Arena Evaluation
+
+      - **Input**: User prompts with responses from multiple models
+
+      - **Output**: Pairwise comparison judgments and ELO ratings
+
+      - **Focus**: Comparative model evaluation
+
+
+      ## Key Features
+
+
+      - LLM-as-judge for pairwise comparisons
+
+      - ELO rating calculation for model ranking
+
+      - Supports custom model pairs for comparison
+
+      - Winrate and ranking metrics
+
+      - Configurable baseline model
+
+
+      ## Evaluation Notes
+
+
+      - Default configuration uses **0-shot** evaluation
+
+      - Requires model outputs from previous evaluations
+
+      - Uses LLM-as-judge for quality assessment
+
+      - Aggregation: ELO rating calculation
+
+      - See [Arena User Guide](https://evalscope.readthedocs.io/en/latest/user_guides/arena.html)
+      for details
+
+      '
+    eval_split: test
+    extra_params:
+      baseline: sft_demo
+      models:
+      - name: dpo_demo
+        report_path: ./outputs/arena_demo1/reports\dpo_demo
+      - name: sft_demo
+        report_path: ./outputs/arena_demo1/reports\sft_demo
+    few_shot_num: 0
+    few_shot_prompt_template: null
+    few_shot_random: false
+    filters: null
+    force_redownload: false
+    metric_list:
+    - winrate
+    name: general_arena
+    output_types:
+    - generation
+    paper_url: null
+    pretty_name: GeneralArena
+    prompt_template: "\n            【用户问题】\n            {question}\n            \n\
+      \            【回答 A】\n            {answer_1}\n            \n            【回答 B】\n\
+      \            {answer_2}\n            \n            请比较回答 A 和回答 B 的整体质量。\n  \
+      \          \n            请先进行简短分析，然后给出最终结论。\n"
+    query_template: null
+    review_timeout: null
+    sample_example: null
+    sandbox_config: {}
+    shuffle: false
+    shuffle_choices: false
+    subset_list:
+    - default
+    system_prompt: "\n            你是一名严格、公正的大语言模型回答质量评估员。\n            \n        \
+      \    现在会给你同一个用户问题，以及两个 AI 助手生成的回答：\n            回答 A 和回答 B。\n            \n\
+      \            请比较两个回答的整体质量，重点考虑：\n            1. 有用性\n            2. 正确性与诚实性\n\
+      \            3. 相关性\n            4. 清晰度\n            5. 指令遵循\n            6.\
+      \ 完整性\n            7. 整体人类偏好\n            \n            不要因为回答更长就认为回答更好。\n \
+      \           如果两个回答质量非常接近，应当判定为平局。\n            \n            最终必须严格使用以下五种格式之一：\n\
+      \            [[A>>B]]\n            [[A>B]]\n            [[A=B]]\n          \
+      \  [[B>A]]\n            [[B>>A]]\n"
+    tags:
+    - Custom
+    - Arena
+    train_split: null
+dataset_dir: C:\Users\ACA\.cache\modelscope\hub\datasets
+dataset_hub: modelscope
+datasets:
+- general_arena
+debug: false
+enable_progress_tracker: false
+eval_backend: Native
+eval_batch_size: 15
+eval_config: null
+eval_type: mock_llm
+evalscope_version: 1.6.0
+generation_config:
+  batch_size: 15
+ignore_errors: false
+judge_model_args:
+  api_url: https://api.siliconflow.cn/v1
+  generation_config:
+    extra_body:
+      thinking:
+        type: disabled
+    max_tokens: 2048
+    retries: 3
+    temperature: 0.0
+  model_id: deepseek-ai/DeepSeek-V4-Pro
+judge_strategy: auto
+judge_worker_num: null
+limit: null
+model: text_generation
+model_args: {}
+model_id: Arena
+model_task: text_generation
+no_timestamp: true
+repeats: 1
+rerun_review: false
+sandbox_manager_config: {}
+sandbox_type: docker
+seed: 42
+stream: null
+timeout: null
+use_cache: null
+use_sandbox: false
+work_dir: ./outputs/arena_demo1/arena

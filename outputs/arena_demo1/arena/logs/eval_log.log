@@ -1,0 +1,173 @@
+2026-08-31 20:55:12 - evalscope - INFO: Running with native backend
+2026-08-31 20:55:12 - evalscope - INFO: Dump task config to ./outputs/arena_demo1/arena\configs\task_config.yaml
+2026-08-31 20:55:12 - evalscope - INFO: {
+    "model": "text_generation",
+    "model_id": "Arena",
+    "model_args": {},
+    "model_task": "text_generation",
+    "chat_template": null,
+    "datasets": [
+        "general_arena"
+    ],
+    "dataset_args": {
+        "general_arena": {
+            "name": "general_arena",
+            "dataset_id": "general_arena",
+            "output_types": [
+                "generation"
+            ],
+            "subset_list": [
+                "default"
+            ],
+            "default_subset": "default",
+            "few_shot_num": 0,
+            "few_shot_random": false,
+            "train_split": null,
+            "eval_split": "test",
+            "prompt_template": "\n            【用户问题】\n            {question}\n            \n            【回答 A】\n            {answer_1}\n            \n            【回答 B】\n            {answer_2}\n            \n            请比较回答 A 和回答 B 的整体质量。\n            \n            请先进行简短分析，然后给出最终结论。\n",
+            "few_shot_prompt_template": null,
+            "system_prompt": "\n            你是一名严格、公正的大语言模型回答质量评估员。\n            \n            现在会给你同一个用户问题，以及两个 AI 助手生成的回答：\n            回答 A 和回答 B。\n            \n            请比较两个回答的整体质量，重点考虑：\n            1. 有用性\n            2. 正确性与诚实性\n            3. 相关性\n            4. 清晰度\n            5. 指令遵循\n            6. 完整性\n            7. 整体人类偏好\n            \n            不要因为回答更长就认为回答更好。\n            如果两个回答质量非常接近，应当判定为平局。\n            \n            最终必须严格使用以下五种格式之一：\n            [[A>>B]]\n            [[A>B]]\n            [[A=B]]\n            [[B>A]]\n            [[B>>A]]\n",
+            "query_template": null,
+            "pretty_name": "GeneralArena",
+            "description": "\n## Overview\n\nGeneralArena is a custom benchmark designed to evaluate the performance of large language models in a competitive setting, where models are pitted against each other in custom tasks to determine their relative strengths and weaknesses.\n\n## Task Description\n\n- **Task Type**: Model vs Model Arena Evaluation\n- **Input**: User prompts with responses from multiple models\n- **Output**: Pairwise comparison judgments and ELO ratings\n- **Focus**: Comparative model evaluation\n\n## Key Features\n\n- LLM-as-judge for pairwise comparisons\n- ELO rating calculation for model ranking\n- Supports custom model pairs for comparison\n- Winrate and ranking metrics\n- Configurable baseline model\n\n## Evaluation Notes\n\n- Default configuration uses **0-shot** evaluation\n- Requires model outputs from previous evaluations\n- Uses LLM-as-judge for quality assessment\n- Aggregation: ELO rating calculation\n- See [Arena User Guide](https://evalscope.readthedocs.io/en/latest/user_guides/arena.html) for details\n",
+            "paper_url": null,
+            "data_statistics": null,
+            "sample_example": null,
+            "tags": [
+                "Custom",
+                "Arena"
+            ],
+            "filters": null,
+            "metric_list": [
+                "winrate"
+            ],
+            "aggregation": "elo",
+            "shuffle": false,
+            "shuffle_choices": false,
+            "force_redownload": false,
+            "review_timeout": null,
+            "extra_params": {
+                "models": [
+                    {
+                        "name": "dpo_demo",
+                        "report_path": "./outputs/arena_demo1/reports\\dpo_demo"
+                    },
+                    {
+                        "name": "sft_demo",
+                        "report_path": "./outputs/arena_demo1/reports\\sft_demo"
+                    }
+                ],
+                "baseline": "sft_demo"
+            },
+            "sandbox_config": {}
+        }
+    },
+    "dataset_dir": "C:\\Users\\ACA\\.cache\\modelscope\\hub\\datasets",
+    "dataset_hub": "modelscope",
+    "repeats": 1,
+    "generation_config": {
+        "batch_size": 15
+    },
+    "eval_type": "mock_llm",
+    "eval_backend": "Native",
+    "eval_config": null,
+    "limit": null,
+    "eval_batch_size": 15,
+    "use_cache": null,
+    "rerun_review": false,
+    "work_dir": "./outputs/arena_demo1/arena",
+    "no_timestamp": true,
+    "enable_progress_tracker": false,
+    "ignore_errors": false,
+    "debug": false,
+    "seed": 42,
+    "api_url": null,
+    "timeout": null,
+    "stream": null,
+    "judge_strategy": "auto",
+    "judge_worker_num": null,
+    "judge_model_args": {
+        "model_id": "deepseek-ai/DeepSeek-V4-Pro",
+        "api_url": "https://api.siliconflow.cn/v1",
+        "generation_config": {
+            "temperature": 0.0,
+            "max_tokens": 2048,
+            "retries": 3,
+            "extra_body": {
+                "thinking": {
+                    "type": "disabled"
+                }
+            }
+        }
+    },
+    "analysis_report": false,
+    "use_sandbox": false,
+    "sandbox_type": "docker",
+    "sandbox_manager_config": {},
+    "evalscope_version": "1.6.0"
+}
+2026-08-31 20:55:12 - evalscope - INFO: Start loading benchmark dataset: general_arena
+2026-08-31 20:55:12 - evalscope - INFO: Overall datasets: {('general_qa', 'ultrafeedback')}
+2026-08-31 20:55:13 - evalscope - INFO: Start evaluating 1 subsets of general_arena: ['general_qa&ultrafeedback@dpo_demo&sft_demo']
+2026-08-31 20:55:13 - evalscope - INFO: Unified pool: 304 items to process, 0 already fully cached (304 total across all subsets).
+2026-08-31 20:55:13 - evalscope - INFO: Loading model for prediction...
+2026-08-31 20:55:13 - evalscope - INFO: Creating model text_generation with eval_type=mock_llm base_url=None, config={'retries': 5, 'retry_interval': 10, 'batch_size': 15}, model_args={}
+2026-08-31 20:55:13 - evalscope - INFO: Model loaded successfully.
+2026-08-31 20:55:13 - evalscope - INFO: Creating model deepseek-ai/DeepSeek-V4-Pro with eval_type=openai_api base_url=https://api.siliconflow.cn/v1, config={'retries': 3, 'retry_interval': 10, 'max_tokens': 2048, 'temperature': 0.0, 'extra_body': {'thinking': {'type': 'disabled'}}}, model_args={}
+2026-08-31 20:56:13 - evalscope - INFO: Evaluating[general_arena]  11%| 32/304 [Elapsed: 01:00 < Remaining: 06:41,  1.48s/it]
+2026-08-31 20:57:14 - evalscope - INFO: Evaluating[general_arena]  50%| 151/304 [Elapsed: 02:01 < Remaining: 01:19,  1.92it/s]
+2026-08-31 20:58:15 - evalscope - INFO: Evaluating[general_arena]  85%| 259/304 [Elapsed: 03:02 < Remaining: 00:30,  1.47it/s]
+2026-08-31 20:58:55 - evalscope - INFO: Evaluating[general_arena] 100%| 304/304 [Elapsed: 03:42 < Remaining: 00:00,  1.62s/it]
+2026-08-31 20:58:55 - evalscope - INFO: Unified pool finished for general_arena.
+2026-08-31 20:58:55 - evalscope - INFO: Aggregating scores for subset: general_qa&ultrafeedback@dpo_demo&sft_demo
+2026-08-31 20:58:55 - evalscope - INFO: Generating report...
+2026-08-31 20:58:55 - evalscope - INFO: 
+=== OVERALL LEADERBOARD ===
+Model       WinRate (%)  CI (%)
+--------  -------------  -------------
+sft_demo           50    (+0.0 / +0.0)
+dpo_demo           48.8  (-1.9 / +1.5)
+2026-08-31 20:58:55 - evalscope - INFO: 
+=== DATASET LEADERBOARD: general_qa ===
+Model       WinRate (%)  CI (%)
+--------  -------------  -------------
+sft_demo           50    (+0.0 / +0.0)
+dpo_demo           48.8  (-1.9 / +1.5)
+2026-08-31 20:58:55 - evalscope - INFO: 
+=== SUBSET LEADERBOARD: general_qa - ultrafeedback ===
+Model       WinRate (%)  CI (%)
+--------  -------------  -------------
+sft_demo           50    (+0.0 / +0.0)
+dpo_demo           48.8  (-1.9 / +1.5)
+2026-08-31 20:58:55 - evalscope - INFO: Leaderboard results saved to: ./outputs/arena_demo1/arena\reports\Arena\leaderboard.txt
+2026-08-31 20:58:55 - evalscope - INFO: 
+general_arena report table:
++---------+---------------+---------------+--------------------------------------------+-------+---------+---------+
+| Model   | Dataset       | Metric        | Subset                                     |   Num |   Score | Cat.0   |
++=========+===============+===============+============================================+=======+=========+=========+
+| Arena   | general_arena | winrate       | general_qa&ultrafeedback@dpo_demo&sft_demo |   304 |  0.4882 | default |
++---------+---------------+---------------+--------------------------------------------+-------+---------+---------+
+| Arena   | general_arena | winrate_lower | general_qa&ultrafeedback@dpo_demo&sft_demo |   304 |  0.4697 | default |
++---------+---------------+---------------+--------------------------------------------+-------+---------+---------+
+| Arena   | general_arena | winrate_upper | general_qa&ultrafeedback@dpo_demo&sft_demo |   304 |  0.5028 | default |
++---------+---------------+---------------+--------------------------------------------+-------+---------+---------+ 
+
+2026-08-31 20:58:55 - evalscope - INFO: Skipping report analysis (`analysis_report=False`).
+2026-08-31 20:58:55 - evalscope - INFO: Dump report to: ./outputs/arena_demo1/arena\reports\Arena\general_arena.json 
+
+2026-08-31 20:58:55 - evalscope - INFO: Benchmark general_arena evaluation finished.
+2026-08-31 20:58:55 - evalscope - INFO: Running[eval] 100%| 1/1 [Elapsed: 03:42 < Remaining: 00:00, 222.43s/benchmark]
+2026-08-31 20:58:55 - evalscope - INFO: Overall report table: 
++---------+---------------+---------------+--------------------------------------------+-------+---------+---------+
+| Model   | Dataset       | Metric        | Subset                                     |   Num |   Score | Cat.0   |
++=========+===============+===============+============================================+=======+=========+=========+
+| Arena   | general_arena | winrate       | general_qa&ultrafeedback@dpo_demo&sft_demo |   304 |  0.4882 | default |
++---------+---------------+---------------+--------------------------------------------+-------+---------+---------+
+| Arena   | general_arena | winrate_lower | general_qa&ultrafeedback@dpo_demo&sft_demo |   304 |  0.4697 | default |
++---------+---------------+---------------+--------------------------------------------+-------+---------+---------+
+| Arena   | general_arena | winrate_upper | general_qa&ultrafeedback@dpo_demo&sft_demo |   304 |  0.5028 | default |
++---------+---------------+---------------+--------------------------------------------+-------+---------+---------+ 
+
+2026-08-31 20:58:55 - evalscope - INFO: HTML report generated: D:\Program Files\PythonProject_dl&llm\LLM\Auto_CareSever\outputs\arena_demo1\arena\reports\report.html
+2026-08-31 20:58:55 - evalscope - INFO: Finished evaluation for Arena on ['general_arena']
+2026-08-31 20:58:55 - evalscope - INFO: Output directory: ./outputs/arena_demo1/arena

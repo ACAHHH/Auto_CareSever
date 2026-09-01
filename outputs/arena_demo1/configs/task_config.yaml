@@ -1,0 +1,125 @@
+analysis_report: false
+api_url: null
+chat_template: null
+dataset_args:
+  general_qa:
+    aggregation: mean
+    data_statistics: null
+    dataset_id: custom_eval/text/qa1
+    default_subset: default
+    description: '
+
+      ## Overview
+
+
+      General-QA is a customizable question answering benchmark for evaluating language
+      models on open-ended text generation tasks. It supports flexible data formats
+      and configurable evaluation metrics.
+
+
+      ## Task Description
+
+
+      - **Task Type**: Open-Ended Question Answering
+
+      - **Input**: Question (with optional system prompt and conversation history)
+
+      - **Output**: Free-form text answer
+
+      - **Flexibility**: Supports custom datasets via local files
+
+
+      ## Key Features
+
+
+      - Flexible input format (query/answer or messages format)
+
+      - Optional system prompt support
+
+      - BLEU and Rouge evaluation metrics
+
+      - Custom dataset support via local file loading
+
+      - Extensible for various QA use cases
+
+
+      ## Evaluation Notes
+
+
+      - Default configuration uses **0-shot** evaluation
+
+      - Default metrics: **BLEU**, **Rouge** (Rouge-L-R as main score)
+
+      - Evaluates on **test** split
+
+      - See [User Guide](https://evalscope.readthedocs.io/en/latest/advanced_guides/custom_dataset/llm.html#qa)
+      for dataset format
+
+      '
+    eval_split: test
+    extra_params: {}
+    few_shot_num: 0
+    few_shot_prompt_template: null
+    few_shot_random: false
+    filters: null
+    force_redownload: false
+    metric_list:
+    - Rouge
+    name: general_qa
+    output_types:
+    - generation
+    paper_url: null
+    pretty_name: General-QA
+    prompt_template: '«Îªÿ¥Œ Ã‚
+
+      {question}'
+    query_template: null
+    review_timeout: null
+    sample_example: null
+    sandbox_config: {}
+    shuffle: false
+    shuffle_choices: false
+    subset_list:
+    - ultrafeedback
+    system_prompt: null
+    tags:
+    - QA
+    - Custom
+    train_split: null
+dataset_dir: C:\Users\ACA\.cache\modelscope\hub\datasets
+dataset_hub: modelscope
+datasets:
+- general_qa
+debug: false
+enable_progress_tracker: false
+eval_backend: Native
+eval_batch_size: 16
+eval_config: null
+eval_type: llm_ckpt
+evalscope_version: 1.6.0
+generation_config:
+  batch_size: 16
+  do_sample: false
+  max_tokens: 2048
+ignore_errors: false
+judge_model_args: {}
+judge_strategy: auto
+judge_worker_num: null
+limit: null
+model: ./finetuned/dpo_Qlora
+model_args:
+  precision: torch.float16
+  revision: master
+model_id: dpo_demo
+model_task: text_generation
+no_timestamp: true
+repeats: 1
+rerun_review: false
+sandbox_manager_config: {}
+sandbox_type: docker
+seed: 42
+stream: null
+timeout: null
+use_cache: null
+use_sandbox: false
+work_dir: ./outputs/arena_demo1/

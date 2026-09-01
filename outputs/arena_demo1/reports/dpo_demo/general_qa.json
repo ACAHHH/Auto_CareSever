@@ -1,0 +1,218 @@
+{
+    "name": "dpo_demo@general_qa",
+    "dataset_name": "general_qa",
+    "dataset_pretty_name": "General-QA",
+    "dataset_description": "\n## Overview\n\nGeneral-QA is a customizable question answering benchmark for evaluating language models on open-ended text generation tasks. It supports flexible data formats and configurable evaluation metrics.\n\n## Task Description\n\n- **Task Type**: Open-Ended Question Answering\n- **Input**: Question (with optional system prompt and conversation history)\n- **Output**: Free-form text answer\n- **Flexibility**: Supports custom datasets via local files\n\n## Key Features\n\n- Flexible input format (query/answer or messages format)\n- Optional system prompt support\n- BLEU and Rouge evaluation metrics\n- Custom dataset support via local file loading\n- Extensible for various QA use cases\n\n## Evaluation Notes\n\n- Default configuration uses **0-shot** evaluation\n- Default metrics: **BLEU**, **Rouge** (Rouge-L-R as main score)\n- Evaluates on **test** split\n- See [User Guide](https://evalscope.readthedocs.io/en/latest/advanced_guides/custom_dataset/llm.html#qa) for dataset format\n",
+    "model_name": "dpo_demo",
+    "score": 0.7552,
+    "metrics": [
+        {
+            "name": "mean_Rouge-1-R",
+            "num": 304,
+            "score": 0.7552,
+            "macro_score": 0.7552,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 304,
+                    "score": 0.7552,
+                    "macro_score": 0.7552,
+                    "subsets": [
+                        {
+                            "name": "ultrafeedback",
+                            "score": 0.7552,
+                            "num": 304
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "mean_Rouge-1-P",
+            "num": 304,
+            "score": 0.7626,
+            "macro_score": 0.7626,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 304,
+                    "score": 0.7626,
+                    "macro_score": 0.7626,
+                    "subsets": [
+                        {
+                            "name": "ultrafeedback",
+                            "score": 0.7626,
+                            "num": 304
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "mean_Rouge-1-F",
+            "num": 304,
+            "score": 0.756,
+            "macro_score": 0.756,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 304,
+                    "score": 0.756,
+                    "macro_score": 0.756,
+                    "subsets": [
+                        {
+                            "name": "ultrafeedback",
+                            "score": 0.756,
+                            "num": 304
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "mean_Rouge-2-R",
+            "num": 304,
+            "score": 0.6709,
+            "macro_score": 0.6709,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 304,
+                    "score": 0.6709,
+                    "macro_score": 0.6709,
+                    "subsets": [
+                        {
+                            "name": "ultrafeedback",
+                            "score": 0.6709,
+                            "num": 304
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "mean_Rouge-2-P",
+            "num": 304,
+            "score": 0.6885,
+            "macro_score": 0.6885,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 304,
+                    "score": 0.6885,
+                    "macro_score": 0.6885,
+                    "subsets": [
+                        {
+                            "name": "ultrafeedback",
+                            "score": 0.6885,
+                            "num": 304
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "mean_Rouge-2-F",
+            "num": 304,
+            "score": 0.677,
+            "macro_score": 0.677,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 304,
+                    "score": 0.677,
+                    "macro_score": 0.677,
+                    "subsets": [
+                        {
+                            "name": "ultrafeedback",
+                            "score": 0.677,
+                            "num": 304
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "mean_Rouge-L-R",
+            "num": 304,
+            "score": 0.7278,
+            "macro_score": 0.7278,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 304,
+                    "score": 0.7278,
+                    "macro_score": 0.7278,
+                    "subsets": [
+                        {
+                            "name": "ultrafeedback",
+                            "score": 0.7278,
+                            "num": 304
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "mean_Rouge-L-P",
+            "num": 304,
+            "score": 0.7425,
+            "macro_score": 0.7425,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 304,
+                    "score": 0.7425,
+                    "macro_score": 0.7425,
+                    "subsets": [
+                        {
+                            "name": "ultrafeedback",
+                            "score": 0.7425,
+                            "num": 304
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "mean_Rouge-L-F",
+            "num": 304,
+            "score": 0.732,
+            "macro_score": 0.732,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 304,
+                    "score": 0.732,
+                    "macro_score": 0.732,
+                    "subsets": [
+                        {
+                            "name": "ultrafeedback",
+                            "score": 0.732,
+                            "num": 304
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "analysis": "N/A"
+}

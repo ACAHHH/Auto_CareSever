@@ -1,0 +1,17 @@
+=== OVERALL LEADERBOARD ===
+Model       WinRate (%)  CI (%)
+--------  -------------  -------------
+sft_demo           50    (+0.0 / +0.0)
+dpo_demo           48.8  (-1.9 / +1.5)
+
+=== DATASET LEADERBOARD: general_qa ===
+Model       WinRate (%)  CI (%)
+--------  -------------  -------------
+sft_demo           50    (+0.0 / +0.0)
+dpo_demo           48.8  (-1.9 / +1.5)
+
+=== SUBSET LEADERBOARD: general_qa - ultrafeedback ===
+Model       WinRate (%)  CI (%)
+--------  -------------  -------------
+sft_demo           50    (+0.0 / +0.0)
+dpo_demo           48.8  (-1.9 / +1.5)
